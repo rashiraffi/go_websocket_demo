@@ -13,7 +13,6 @@ function App() {
     e.preventDefault();
     console.log("Submitting form...");
 
-    // Create form data for the login API
     const formData = new FormData();
     formData.append("email", email);
     formData.append("password", password);
@@ -33,8 +32,7 @@ function App() {
       const token = data.token;
       console.log("Token received:", token);
 
-      // Build the WebSocket URL. Since browsers don’t allow custom headers in native WebSocket,
-      // pass the token as a query parameter.
+      // Build the WebSocket URL.
       const wsUrl = `ws://localhost:7001/ws/price?stockID=${encodeURIComponent(
         stockSymbol
       )}&token=${encodeURIComponent(token)}`;
